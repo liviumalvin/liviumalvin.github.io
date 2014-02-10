@@ -61,9 +61,10 @@ document.addEventListener("initialize", function () {
 	Snippet.add.createAction("submit", "addSnippetForm", function (e) {
 		e.preventDefault();
 		var code = {};
-		
+
 		code.title = $("#snippetTitle").val();
 		code.description = $("#snippetDescription").val();
+		code.author = $("#snippetAuthor").val();
 		code.code = $("#snippetBody").val();
 
 		//Push to firebase
