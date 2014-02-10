@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+
+		<!-- jQuery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/vendor/jbootstrap-validation/min.js"></script>
+
+		<!-- Bootstrap -->
+			<!-- Latest compiled and minified CSS -->
+			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+			<!-- Optional theme -->
+			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+
+			<!-- Latest compiled and minified JavaScript -->
+			<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
+		<!-- Bootstrap -->
+
+		<!-- Firebase -->
+			<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<!-- Firebase -->
+
+		<!-- Google code prettify-->
+
+			<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+			<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+		<!-- Google code prettify-->
+
+		<!-- Jasmine 
+			<link rel="stylesheet" type="text/css" href="/vendor/jasmine-2.0.0/jasmine.css">
+
+			<script type="text/javascript" src="/vendor/jasmine-2.0.0/jasmine.js"></script>
+			<script type="text/javascript" src="/vendor/jasmine-2.0.0/jasmine-html.js"></script>
+			<script type="text/javascript" src="/vendor/jasmine-2.0.0/boot.js"></script>
+			Jasmine -->
+
+		<!-- Include Lib-->
+			<script type="text/javascript" src="/lib/Object.js"></script>
+			<script type="text/javascript" src="/lib/Application.js"></script>
+			<script type="text/javascript" src="/lib/Viewport.js"></script>
+
+		<!-- Include test
+			<script type="text/javascript" src="/tests/Viewport.js"></script>
+		-->
+
+		<!-- Include Src-->
+			<script type="text/javascript" src="/src/boot.js"></script>
+			<script type="text/javascript" src="/src/home.js"></script>
+			<script type="text/javascript" src="/src/snippet.js"></script>
+		
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		  <div class="container">
+		  	    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Snipperion</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav navbar-right">
+
+					<li>
+						<a href="javascript:{};" data-show="viewport,dashboard-grid"> 
+							<span class="glyphicon glyphicon-th-large"></span> 
+							Dashboard 
+						</a>
+					</li>
+				    <li>
+				    	<a href="javascript:{};" data-show="viewport,add-snippet"> 
+				    		<span class="glyphicon glyphicon-plus"></span> 
+				    		Add 
+				    	</a>
+				    </li>
+
+			      </ul>
+			    </div>
+		  </div>
+		</nav>
+
+		<!-- Dashboard container -->
+			<div class="container" data-viewport="dashboard">
+				<h3>
+					Dashboard
+					 <span data-show="viewport,dashboard-grid" class="glyphicon glyphicon-th" style="cursor:pointer"> </span> 
+					 <span data-show="viewport,dashboard-list" class="glyphicon glyphicon-th-list" style="cursor:pointer"> </span> 
+				</h3>
+			</div>
+		<!-- Dashboard container -->
+
+		<!-- Snippet container -->
+			<div class="container" data-viewport="snippet">
+				<h3>
+					Snippet
+				</h3>
+			</div>
+		<!-- Snippet container -->
+
+		<!-- Grid viewport -->
+			<div class="row" data-viewport="dashboard-grid">
+					
+			</div>
+		<!-- Grid viewport -->
+
+		<!-- List viewport -->
+			<div class="row" data-viewport="dashboard-list">
+					
+			</div>
+		<!-- List viewport -->
+
+		<!-- Grid item viewport--> 
+			<div data-viewport="snippet-grid-item">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">snippet
+						<div class="caption">
+							<h3 data-key="title"></h3>
+							<p data-key="description"></p>
+							<p>
+								<a href="javascript:void();" class="btn btn-primary" role="button" data-key="id" data-show="viewport,view-snippet,id">View</a> 
+							</p>
+						</div>
+					</div>
+				</div>  
+			</div>
+		<!-- Grid item viewport --> 
+
+		<!-- List item viewport--> 
+			<div data-viewport="snippet-list-item">
+				<div class="col-sm-6 col-md-8">
+					<div class="thumbnail">
+						<div class="caption">
+							<h3 data-key="title"></h3>
+							<p data-key="description"></p>
+							<p>
+								<a href="javascript:void()" class="btn btn-primary" role="button">View</a> 
+							</p>
+						</div>
+					</div>
+				</div>  
+			</div>
+		<!-- List item viewport --> 
+
+
+		<!-- add-snippet viewport-->
+			<div data-viewport="add-snippet">
+				<h4> Add new </h4>
+				<form class="form-horizontal" role="form" data-name="addSnippetForm">
+				  <div class="form-group">
+				    <label for="snippetTitle" class="col-sm-2 control-label">Title</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="snippetTitle" placeholder="Title" required>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="snippetDescription" class="col-sm-2 control-label">Description</label>
+				    <div class="col-sm-10">
+				      <textarea class="form-control" rows="3" id="snippetDescription" placeholder="A small description for your code snippet" required></textarea>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="snippetBody" class="col-sm-2 control-label">Code Snippet</label>
+				    <div class="col-sm-10">
+				      <textarea class="form-control" rows="15" id="snippetBody" placeholder="Please paste your code here" required></textarea>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				     <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		<!-- add-snippet viewport-->
+
+		<!-- view-snippet viewport -->
+		<span data-viewport="view-snippet">
+			
+			<div class="panel panel-default" >
+			  <div class="panel-heading">
+			  	<button type="button" class="btn btn-primary btn-lg" data-show="viewport,dashboard-grid">Back</button>
+			  </div>
+			  <div class="panel-body">
+			    <h3 class="panel-title" data-key="title"></h3>
+			  </div>
+			  <div class="panel-body">
+			    <h3 class="panel-title" data-key="description"></h3>
+			  </div>
+			  <div class="panel-body" >
+			  	<pre data-key="code">
+
+			  	</pre>
+			  </div>
+			</div>
+		</span>
+		<!-- view-snippet viewport -->
+	</body>
+
+</html>
