@@ -1,6 +1,6 @@
 document.addEventListener("initialize", function () {
 	"use strict";
-	
+
 	var Dashboard;
 	/**
 	 * Home page
@@ -38,6 +38,9 @@ document.addEventListener("initialize", function () {
 					.createFeed({
 						source: Application.snippets.getFeed,
 						iterator: Application.viewport.create("snippet-list-item"),
+						map: {
+							id: "id"
+						}
 					})
 					.on("before.show", function () {
 						this.feed();
